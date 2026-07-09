@@ -92,6 +92,11 @@ The blob is regenerated from the official source so you can verify exactly what'
 
 ---
 
-## License
+## Support
 
-Apache 2.0.
+If you found this project interesting and helpful, consider [buying me a coffee](https://buymeacoffee.com/runaque)!
+
+
+<a href="https://buymeacoffee.com/runaque" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+</a>
