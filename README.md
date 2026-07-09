@@ -4,6 +4,9 @@
 
 HomeSentinel answers one question continuously: *what's on my network right now, and has anything changed?* It discovers devices on your LAN, builds a persistent inventory, detects when devices appear, disappear, or behave unusually, and presents everything through a clean web dashboard — running standalone on a single ESP32-S3 N16R8.
 
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/23ae2c8e-4885-4cc9-94e2-5150a1a170c9" />
+
+
 It is an **asset-discovery and change-detection** tool, not a packet sniffer, IDS, or pentest tool. It watches *what is present*, not *what is being said*.
 
 ---
