@@ -1,0 +1,50 @@
+# HomeSentinel — pinned build configuration
+# ESP-IDF v5.5.3 / target esp32s3 (N16R8)
+#
+# These defaults make the build reproducible. Run `idf.py set-target esp32s3`
+# once, then build — menuconfig is not required for a stock build.
+
+# --- Target ---------------------------------------------------------------
+CONFIG_IDF_TARGET="esp32s3"
+
+# --- Flash: 16 MB ---------------------------------------------------------
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+
+# --- PSRAM: 8 MB octal (N16R8) -------------------------------------------
+# The R8 in N16R8 is octal-SPI PSRAM. Wrong mode = no PSRAM detected.
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_SPEED_80M=y
+CONFIG_SPIRAM_USE_MALLOC=y
+# Keep small/internal allocations off PSRAM; we explicitly place big buffers.
+CONFIG_SPIRAM_MALLOC_ALWAYSINTERNAL=16384
+CONFIG_SPIRAM_TRY_ALLOCATE_WIFI_LWIP=y
+
+# --- Partition table ------------------------------------------------------
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# --- lwIP tuning for subnet scanning -------------------------------------
+# A /24 sweep opens many short-lived sockets; give lwIP headroom so we
+# don't get false "offline" results from socket exhaustion.
+CONFIG_LWIP_MAX_SOCKETS=16
+CONFIG_LWIP_SO_REUSE=y
+# Raw PCBs are needed for the ICMP ping component.
+CONFIG_LWIP_IPV4=y
+
+# --- mDNS -----------------------------------------------------------------
+CONFIG_MDNS_MAX_INTERFACES=1
+
+# --- HTTP server ----------------------------------------------------------
+CONFIG_HTTPD_MAX_REQ_HDR_LEN=1024
+CONFIG_HTTPD_MAX_URI_LEN=512
+
+# --- FreeRTOS / misc ------------------------------------------------------
+CONFIG_FREERTOS_HZ=1000
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=4096
+
+# --- Logging --------------------------------------------------------------
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+CONFIG_LOG_MAXIMUM_LEVEL_DEBUG=y

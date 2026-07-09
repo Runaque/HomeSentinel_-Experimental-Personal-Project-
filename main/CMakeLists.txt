@@ -1,0 +1,28 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "wifi.c"
+        "discovery.c"
+        "inventory.c"
+        "anomaly.c"
+        "oui.c"
+        "web.c"
+        "notifier.c"
+    INCLUDE_DIRS
+        "."
+    PRIV_REQUIRES
+        esp_wifi
+        esp_netif
+        lwip
+        mdns
+        esp_http_server
+        esp_http_client
+        esp_timer
+        esp-tls
+        esp_partition
+        mbedtls
+        nvs_flash
+        json
+    EMBED_FILES
+        "${CMAKE_CURRENT_SOURCE_DIR}/../web/index.html.gz"
+)

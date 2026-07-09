@@ -1,0 +1,19 @@
+# ESP-IDF build artifacts
+build/
+sdkconfig
+sdkconfig.old
+
+# Managed components are resolved from the registry, not committed
+managed_components/
+dependencies.lock
+
+# Generated web assets (gzipped UI is built from web/ sources)
+web/*.gz
+
+# Generated OUI blob (regenerate with tools/build_oui.py)
+oui.bin
+
+# Editor / OS noise
+.vscode/
+.DS_Store
+*.swp

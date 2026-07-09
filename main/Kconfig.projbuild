@@ -1,0 +1,34 @@
+menu "HomeSentinel Configuration"
+
+    config HS_WIFI_SSID
+        string "Wi-Fi SSID"
+        default "myssid"
+        help
+            SSID of the network HomeSentinel monitors and connects to.
+
+    config HS_WIFI_PASSWORD
+        string "Wi-Fi password"
+        default "mypassword"
+        help
+            WPA2 password for the network. Stored in firmware config, not source.
+
+    config HS_WEB_USER
+        string "Web UI username"
+        default "admin"
+        help
+            Username for the dashboard login.
+
+    config HS_WEB_PASSWORD
+        string "Web UI password"
+        default "changeme"
+        help
+            Password for the dashboard login. Change this before deploying.
+
+    config HS_DISCORD_WEBHOOK
+        string "Discord webhook URL (optional)"
+        default ""
+        help
+            If set, anomaly alerts are POSTed to this Discord webhook. Leave
+            empty to disable notifications.
+
+endmenu

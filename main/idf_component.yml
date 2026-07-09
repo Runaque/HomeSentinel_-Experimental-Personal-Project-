@@ -1,0 +1,18 @@
+# HomeSentinel — managed component dependencies
+# `idf.py reconfigure` resolves these from the ESP Component Registry.
+# Versions are pinned so the build is reproducible for anyone who clones.
+dependencies:
+  # ESP-IDF version pin — refuse to build on an untested IDF.
+  idf:
+    version: ">=5.5.0,<6.0.0"
+
+  # LittleFS for ESP-IDF (snapshot persistence).
+  # v1.22.1 is current on the registry as of this writing; caret allows
+  # bugfix/minor updates but not a major bump.
+  joltwallet/littlefs:
+    version: "^1.22.1"
+
+  # mDNS managed component. Range rather than exact pin so the dependency
+  # resolver can satisfy it against the IDF version in use.
+  espressif/mdns:
+    version: "^1.5.0"
